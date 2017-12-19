@@ -5,7 +5,6 @@ using UnityEngine;
 public class scr_playerControl : MonoBehaviour {
 
     public float moveSpeed;
-    public float maxLookAngle;
     public float sprintMagnitude;
     public float jumpForce;
     public float grabRange;
@@ -19,17 +18,19 @@ public class scr_playerControl : MonoBehaviour {
     bool isJumping;
     public Camera cam;
     public GameObject shoulder;
-    //public GameObject chest;
-    //public GameObject hip;
     public GameObject body;
     public GameObject hand;
     public GameObject grabbedObject;
     public Rigidbody movement;
     public RaycastHit checkGrabbable;
+    Animator anim;
+    public AnimationClip idle;
+    public AnimationClip walk;
 
     void Start () {
 
         movement = gameObject.GetComponent<Rigidbody>();
+        anim = gameObject.GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         sprinting = false;
         grounded = false;
@@ -75,21 +76,7 @@ public class scr_playerControl : MonoBehaviour {
         if (measureAim != Vector3.zero)
         {
 
-            shoulder.transform.localRotation = Quaternion.Euler(shoulder.transform.localEulerAngles.x + measureAim.x, shoulder.transform.localEulerAngles.y + measureAim.y, 0);
-
-            if (shoulder.transform.localRotation.x > maxLookAngle)
-            {
-
-                shoulder.transform.localRotation = Quaternion.LookRotation(new Vector3(body.transform.right.x + maxLookAngle, 0, 0), (shoulder.transform.up));
-
-            }
-
-            if (shoulder.transform.localRotation.x < -maxLookAngle)
-            {
-
-                shoulder.transform.localRotation = Quaternion.LookRotation(new Vector3(body.transform.right.x - maxLookAngle, 0, 0), (shoulder.transform.up));
-
-            }
+            shoulder.transform.localRotation = Quaternion.Euler(shoulder.transform.localEulerAngles.x, shoulder.transform.localEulerAngles.y + measureAim.y, 0);
 
         }
         
@@ -237,7 +224,7 @@ public class scr_playerControl : MonoBehaviour {
         }
 
         //Check if Throw Button Pressed and Object is Held
-            if (Input.GetButtonDown("Throw") && grabbedObject != null)
+        if (Input.GetButtonDown("Throw") && grabbedObject != null)
         {
 
             //Throw Object
@@ -275,8 +262,23 @@ public class scr_playerControl : MonoBehaviour {
 
         }
 
-        //chest.transform.rotation = shoulder.transform.rotation;
+        //Find and Play the Correct nimation
+        if (grounded == true)
+        {
+            if (move != Vector3.zero)
+            {
 
-        //hip.transform.forward = forward;
+                body.transform.LookAt(transform.position + move);
+                anim.Play(walk.name);
+
+            }
+            else
+            {
+
+                anim.Play(idle.name);
+
+            }
+        }
+
     }
 }
