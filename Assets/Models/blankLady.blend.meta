@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: 9fb73cb08b504294da8f063dbb0569a8
+timeCreated: 1513448099
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Base
+    100004: Body
+    100006: Bone
+    100008: Bone_001
+    100010: Bone_002
+    100012: Bone_003
+    100014: Bone_004
+    100016: Bone_008
+    100018: Bone_009
+    100020: Bone_010
+    100022: Bone_011
+    100024: Chest
+    100026: Head
+    100028: Hip
+    100030: Left_Bird_Distal
+    100032: Left_Bird_Medial
+    100034: Left_Bird_Proximal
+    100036: Left_Forearm
+    100038: Left_Hand
+    100040: Left_Index_Distal
+    100042: Left_Index_Medial
+    100044: Left_Index_Proximal
+    100046: Left_Pinkie_Distal
+    100048: Left_Pinkie_Medial
+    100050: Left_Pinkie_Proximal
+    100052: Left_Ring_Distal
+    100054: Left_Ring_Medial
+    100056: Left_Ring_Proximal
+    100058: Left_Thumb_Distal
+    100060: Left_Thumb_Medial
+    100062: Left_Thumb_Proximal
+    100064: Left_Upper_Arm
+    100066: Neck
+    100068: Right_Bird_Distal
+    100070: Right_Bird_Medial
+    100072: Right_Bird_Proximal
+    100074: Right_Forearm
+    100076: Right_Hand
+    100078: Right_Index_Distal
+    100080: Right_Index_Medial
+    100082: Right_Index_Proximal
+    100084: Right_Pinkie_Distal
+    100086: Right_Pinkie_Medial
+    100088: Right_Pinkie_Proximal
+    100090: Right_Ring_Distal
+    100092: Right_Ring_Medial
+    100094: Right_Ring_Proximal
+    100096: Right_Thumb_Distal
+    100098: Right_Thumb_Medial
+    100100: Right_Thumb_Proximal
+    100102: Right_Upper_Arm
+    100104: Waist
+    100106: Armature
+    100108: Left_Arm_IK_Target
+    100110: Left_Calf
+    100112: Left_Elbow
+    100114: Left_Foot
+    100116: Left_Knee
+    100118: Left_Leg_IK_Target
+    100120: Left_Thigh
+    100122: Left_Toes
+    100124: Right_Arm_IK_Target
+    100126: Right_Calf
+    100128: Right_Elbow
+    100130: Right_Foot
+    100132: Right_Knee
+    100134: Right_Leg_IK_Target
+    100136: Right_Thigh
+    100138: Right_Toes
+    100140: Root
+    100142: Cube
+    100144: Body_001
+    100146: Circle
+    100148: Ears
+    100150: Hood
+    100152: Tail
+    100154: Scarf
+    400000: //RootNode
+    400002: Base
+    400004: Body
+    400006: Bone
+    400008: Bone_001
+    400010: Bone_002
+    400012: Bone_003
+    400014: Bone_004
+    400016: Bone_008
+    400018: Bone_009
+    400020: Bone_010
+    400022: Bone_011
+    400024: Chest
+    400026: Head
+    400028: Hip
+    400030: Left_Bird_Distal
+    400032: Left_Bird_Medial
+    400034: Left_Bird_Proximal
+    400036: Left_Forearm
+    400038: Left_Hand
+    400040: Left_Index_Distal
+    400042: Left_Index_Medial
+    400044: Left_Index_Proximal
+    400046: Left_Pinkie_Distal
+    400048: Left_Pinkie_Medial
+    400050: Left_Pinkie_Proximal
+    400052: Left_Ring_Distal
+    400054: Left_Ring_Medial
+    400056: Left_Ring_Proximal
+    400058: Left_Thumb_Distal
+    400060: Left_Thumb_Medial
+    400062: Left_Thumb_Proximal
+    400064: Left_Upper_Arm
+    400066: Neck
+    400068: Right_Bird_Distal
+    400070: Right_Bird_Medial
+    400072: Right_Bird_Proximal
+    400074: Right_Forearm
+    400076: Right_Hand
+    400078: Right_Index_Distal
+    400080: Right_Index_Medial
+    400082: Right_Index_Proximal
+    400084: Right_Pinkie_Distal
+    400086: Right_Pinkie_Medial
+    400088: Right_Pinkie_Proximal
+    400090: Right_Ring_Distal
+    400092: Right_Ring_Medial
+    400094: Right_Ring_Proximal
+    400096: Right_Thumb_Distal
+    400098: Right_Thumb_Medial
+    400100: Right_Thumb_Proximal
+    400102: Right_Upper_Arm
+    400104: Waist
+    400106: Armature
+    400108: Left_Arm_IK_Target
+    400110: Left_Calf
+    400112: Left_Elbow
+    400114: Left_Foot
+    400116: Left_Knee
+    400118: Left_Leg_IK_Target
+    400120: Left_Thigh
+    400122: Left_Toes
+    400124: Right_Arm_IK_Target
+    400126: Right_Calf
+    400128: Right_Elbow
+    400130: Right_Foot
+    400132: Right_Knee
+    400134: Right_Leg_IK_Target
+    400136: Right_Thigh
+    400138: Right_Toes
+    400140: Root
+    400142: Cube
+    400144: Body_001
+    400146: Circle
+    400148: Ears
+    400150: Hood
+    400152: Tail
+    400154: Scarf
+    2300000: //RootNode
+    2300002: Cube
+    2300004: Circle
+    2300006: Ears
+    2300008: Tail
+    3300000: //RootNode
+    3300002: Cube
+    3300004: Circle
+    3300006: Ears
+    3300008: Tail
+    4300000: Cube
+    4300002: Body
+    4300004: Circle
+    4300006: Ears
+    4300008: Tail
+    4300010: Body_001
+    4300012: Hood
+    4300014: Scarf
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Body
+    13700002: Body_001
+    13700004: Hood
+    13700006: Scarf
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
