@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 
 public class MainMenu : SimpleMenu<MainMenu>
 {
@@ -17,3 +17,4 @@ public class MainMenu : SimpleMenu<MainMenu>
 		Application.Quit();
 	}
 }
+*/
