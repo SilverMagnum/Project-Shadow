@@ -26,6 +26,7 @@ public class scr_playerControl : MonoBehaviour {
     Animator anim;
     public AnimationClip idle;
     public AnimationClip walk;
+    public AnimationClip jump;
 
     void Start () {
 
@@ -263,12 +264,19 @@ public class scr_playerControl : MonoBehaviour {
         }
 
         //Find and Play the Correct nimation
+
+        if(move != Vector3.zero)
+        {
+
+            body.transform.LookAt(transform.position + move);
+
+        }
+
         if (grounded == true)
         {
             if (move != Vector3.zero)
             {
 
-                body.transform.LookAt(transform.position + move);
                 anim.Play(walk.name);
 
             }
@@ -278,6 +286,17 @@ public class scr_playerControl : MonoBehaviour {
                 anim.Play(idle.name);
 
             }
+        }
+        else if (grounded == false)
+        {
+
+            if(movement.velocity.y > 0)
+            {
+
+                anim.Play(jump.name);
+
+            }
+
         }
 
     }
