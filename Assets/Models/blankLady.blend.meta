@@ -166,11 +166,13 @@ ModelImporter:
     2300004: Circle
     2300006: Ears
     2300008: Tail
+    2300010: Scarf
     3300000: //RootNode
     3300002: Cube
     3300004: Circle
     3300006: Ears
     3300008: Tail
+    3300010: Scarf
     4300000: Cube
     4300002: Body
     4300004: Circle
