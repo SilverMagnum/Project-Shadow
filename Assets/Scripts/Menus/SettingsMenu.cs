@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 
-public class SettingsMenu : SimpleMenu<SettingsMenu> {
+public class SettingsMenu: SimpleMenu<SettingsMenu> {
 	public void OnControlsPressed() {
 		//Debug.Log("Controls button was pressed.");
 		//ControlsMenu.Show();

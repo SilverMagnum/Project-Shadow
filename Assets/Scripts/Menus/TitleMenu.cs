@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TitleMenu : SimpleMenu<TitleMenu> {
+public class TitleMenu: SimpleMenu<TitleMenu> {
 	public void OnLoadGamePressed() {
 		//Debug.Log("Load Game button was pressed.");
 		//Load Menu Load
