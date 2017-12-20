@@ -15,6 +15,7 @@ public class scr_playerControl : MonoBehaviour {
     public bool grounded;
     public bool grabbing;
     public bool isCrouching;
+    public bool isAttacking;
     bool isJumping;
     public Camera cam;
     public GameObject shoulder;
@@ -27,6 +28,7 @@ public class scr_playerControl : MonoBehaviour {
     public AnimationClip idle;
     public AnimationClip walk;
     public AnimationClip jump;
+    public AnimationClip weakAttack;
 
     void Start () {
 
@@ -56,12 +58,6 @@ public class scr_playerControl : MonoBehaviour {
     {
 
         grounded = false;
-        if(isJumping == false)
-        {
-
-             movement.velocity = new Vector3(movement.velocity.x, -jumpForce, movement.velocity.z);
-
-        }
 
     }
 
@@ -178,7 +174,20 @@ public class scr_playerControl : MonoBehaviour {
 
         }
 
-        movement.velocity = new Vector3(move.x, movement.velocity.y, move.z);
+        if (isAttacking == false)
+        {
+
+            movement.velocity = new Vector3(move.x, movement.velocity.y, move.z);
+
+        }
+        else
+        {
+
+            move = Vector3.zero;
+            movement.velocity = Vector3.zero;
+
+        }
+
 
         //Check if Grab Button Pressed and an Object is Held
         if (Input.GetButtonDown("Grab/Drop") && grabbedObject != null)
@@ -224,8 +233,8 @@ public class scr_playerControl : MonoBehaviour {
 
         }
 
-        //Check if Throw Button Pressed and Object is Held
-        if (Input.GetButtonDown("Throw") && grabbedObject != null)
+        //Check if Attack Button Pressed and Object is Held
+        if (Input.GetButtonDown("Attack") && grabbedObject != null)
         {
 
             //Throw Object
@@ -235,6 +244,12 @@ public class scr_playerControl : MonoBehaviour {
             grabbedObject.transform.parent = null;
             grabbedObject.transform.localScale = new Vector3(1, 1, 1);
             grabbedObject = null;
+
+        }
+        else if(Input.GetButtonDown("Attack") && grabbedObject == null)
+        {
+
+            isAttacking = true;
 
         }
 
@@ -248,6 +263,7 @@ public class scr_playerControl : MonoBehaviour {
             grabbedObject.transform.localScale = new Vector3(1, 1, 1);
 
         }
+        
 
         //Adjust Body Transforms
         if (isCrouching == true)
@@ -263,7 +279,7 @@ public class scr_playerControl : MonoBehaviour {
 
         }
 
-        //Find and Play the Correct nimation
+        //Find and Play the Correct Animation
 
         if(move != Vector3.zero)
         {
@@ -274,18 +290,29 @@ public class scr_playerControl : MonoBehaviour {
 
         if (grounded == true)
         {
-            if (move != Vector3.zero)
+            if (isAttacking == false)
             {
+                if (move != Vector3.zero)
+                {
 
-                anim.Play(walk.name);
+                    anim.Play(walk.name);
 
+                }
+                else
+                {
+
+                    anim.Play(idle.name);
+
+                }
             }
             else
             {
 
-                anim.Play(idle.name);
+                anim.Play(weakAttack.name);
 
             }
+
+
         }
         else if (grounded == false)
         {
