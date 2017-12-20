@@ -5,7 +5,6 @@ using UnityEngine;
 public class scr_playerControl : MonoBehaviour {
 
     public float moveSpeed;
-    public float maxLookAngle;
     public float sprintMagnitude;
     public float jumpForce;
     public float grabRange;
@@ -16,20 +15,25 @@ public class scr_playerControl : MonoBehaviour {
     public bool grounded;
     public bool grabbing;
     public bool isCrouching;
+    public bool isAttacking;
     bool isJumping;
     public Camera cam;
     public GameObject shoulder;
-    //public GameObject chest;
-    //public GameObject hip;
     public GameObject body;
     public GameObject hand;
     public GameObject grabbedObject;
     public Rigidbody movement;
     public RaycastHit checkGrabbable;
+    Animator anim;
+    public AnimationClip idle;
+    public AnimationClip walk;
+    public AnimationClip jump;
+    public AnimationClip weakAttack;
 
     void Start () {
 
         movement = gameObject.GetComponent<Rigidbody>();
+        anim = gameObject.GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         sprinting = false;
         grounded = false;
@@ -54,12 +58,6 @@ public class scr_playerControl : MonoBehaviour {
     {
 
         grounded = false;
-        if(isJumping == false)
-        {
-
-             movement.velocity = new Vector3(movement.velocity.x, -jumpForce, movement.velocity.z);
-
-        }
 
     }
 
@@ -75,21 +73,7 @@ public class scr_playerControl : MonoBehaviour {
         if (measureAim != Vector3.zero)
         {
 
-            shoulder.transform.localRotation = Quaternion.Euler(shoulder.transform.localEulerAngles.x + measureAim.x, shoulder.transform.localEulerAngles.y + measureAim.y, 0);
-
-            if (shoulder.transform.localRotation.x > maxLookAngle)
-            {
-
-                shoulder.transform.localRotation = Quaternion.LookRotation(new Vector3(body.transform.right.x + maxLookAngle, 0, 0), (shoulder.transform.up));
-
-            }
-
-            if (shoulder.transform.localRotation.x < -maxLookAngle)
-            {
-
-                shoulder.transform.localRotation = Quaternion.LookRotation(new Vector3(body.transform.right.x - maxLookAngle, 0, 0), (shoulder.transform.up));
-
-            }
+            shoulder.transform.localRotation = Quaternion.Euler(shoulder.transform.localEulerAngles.x, shoulder.transform.localEulerAngles.y + measureAim.y, 0);
 
         }
         
@@ -190,7 +174,20 @@ public class scr_playerControl : MonoBehaviour {
 
         }
 
-        movement.velocity = new Vector3(move.x, movement.velocity.y, move.z);
+        if (isAttacking == false)
+        {
+
+            movement.velocity = new Vector3(move.x, movement.velocity.y, move.z);
+
+        }
+        else
+        {
+
+            move = Vector3.zero;
+            movement.velocity = Vector3.zero;
+
+        }
+
 
         //Check if Grab Button Pressed and an Object is Held
         if (Input.GetButtonDown("Grab/Drop") && grabbedObject != null)
@@ -236,8 +233,8 @@ public class scr_playerControl : MonoBehaviour {
 
         }
 
-        //Check if Throw Button Pressed and Object is Held
-            if (Input.GetButtonDown("Throw") && grabbedObject != null)
+        //Check if Attack Button Pressed and Object is Held
+        if (Input.GetButtonDown("Attack") && grabbedObject != null)
         {
 
             //Throw Object
@@ -247,6 +244,12 @@ public class scr_playerControl : MonoBehaviour {
             grabbedObject.transform.parent = null;
             grabbedObject.transform.localScale = new Vector3(1, 1, 1);
             grabbedObject = null;
+
+        }
+        else if(Input.GetButtonDown("Attack") && grabbedObject == null)
+        {
+
+            isAttacking = true;
 
         }
 
@@ -260,6 +263,7 @@ public class scr_playerControl : MonoBehaviour {
             grabbedObject.transform.localScale = new Vector3(1, 1, 1);
 
         }
+        
 
         //Adjust Body Transforms
         if (isCrouching == true)
@@ -275,8 +279,52 @@ public class scr_playerControl : MonoBehaviour {
 
         }
 
-        //chest.transform.rotation = shoulder.transform.rotation;
+        //Find and Play the Correct Animation
 
-        //hip.transform.forward = forward;
+        if(move != Vector3.zero)
+        {
+
+            body.transform.LookAt(transform.position + move);
+
+        }
+
+        if (grounded == true)
+        {
+            if (isAttacking == false)
+            {
+                if (move != Vector3.zero)
+                {
+
+                    anim.Play(walk.name);
+
+                }
+                else
+                {
+
+                    anim.Play(idle.name);
+
+                }
+            }
+            else
+            {
+
+                anim.Play(weakAttack.name);
+
+            }
+
+
+        }
+        else if (grounded == false)
+        {
+
+            if(movement.velocity.y > 0)
+            {
+
+                anim.Play(jump.name);
+
+            }
+
+        }
+
     }
 }
